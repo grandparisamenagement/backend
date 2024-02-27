@@ -1,10 +1,19 @@
-import Fastify from "fastify";
-import { nanoid } from "nanoid";
-const fastify = Fastify({ logger: false });
+import Fastify from 'fastify'
+const fastify = Fastify({
+    logger: true
+})
 
-fastify.get("/", (request, reply) => {
-    reply.header("x-req-id", nanoid(10));
-    reply.send("Hello world!");
-});
 
-fastify.listen({ port: 3000 });
+// Declare a route
+fastify.get('/', function (request, reply) {
+    reply.send({ hello: 'worldd' })
+})
+
+// Run the server!
+fastify.listen({ port: 3000 }, function (err, address) {
+    if (err) {
+        fastify.log.error(err)
+        process.exit(1)
+    }
+    // Server is now listening on ${address}
+})

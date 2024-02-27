@@ -3,16 +3,30 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "build": "npx tsc",
-    "start": "bun index.ts"
+    "clean": "rimraf dist",
+    "build": "npm run clean && npx tsc",
+    "start": "node dist/index.js",
+    "serve": "npx tsc && start",
+    "dev": "NODE_ENV=development concurrently \"npx tsc --watch\" \"node --watch dist/index.js\""
   },
-  "devDependencies": {
-    "bun-types": "latest"
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "server/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
   },
+  "devDependencies": {},
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "concurrently": "^8.2.2",
     "fastify": "^4.26.1",
     "nanoid": "^5.0.6",
     "sib-api-v3-sdk": "^8.5.0"
