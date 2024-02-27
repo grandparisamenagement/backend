@@ -14,10 +14,11 @@ export const sendWebhookEmail = () => {
 
     sendSmtpEmail.sender = emailSender
     sendSmtpEmail.to = [
-        { "email": 'oli.livet@gmail.com', "name": 'Olivier LIVET' }
+        { "email": 'oli.livet@gmail.com', "name": 'Olivier LIVET' },
+        { "email": 'jordan.ricker@goingpublic.fr', "name": 'Jordan RICKER' }
     ];
     sendSmtpEmail.subject = `GPA Build Triggered`;
-    sendSmtpEmail.htmlContent = "<html><head></head><body><p>Hello,</p>This is my first transactional email sent from Brevo.</p></body></html>";
+    sendSmtpEmail.htmlContent = "<html><head></head><body><p>Hello,</p><p>Entry update just triggered a build. Have a look soon.</p></body></html>";
 
 
     apiInstance.sendTransacEmail(sendSmtpEmail).then(function (data: any) {
