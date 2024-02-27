@@ -21,7 +21,6 @@
       "*.spec.js"
     ]
   },
-  "devDependencies": {},
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
@@ -29,6 +28,7 @@
     "concurrently": "^8.2.2",
     "fastify": "^4.26.1",
     "nanoid": "^5.0.6",
+    "rimraf": "^5.0.5",
     "sib-api-v3-sdk": "^8.5.0"
   }
 }
