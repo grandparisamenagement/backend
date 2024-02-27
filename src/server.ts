@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 if (process.env.ENV !== 'prod') {
   require('dotenv').config();
+
+
   // console.log('ENV:dev')
 } else {
   // console.log('ENV:prod')
