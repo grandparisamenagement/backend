@@ -3,7 +3,8 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "start": "bun index.ts"
+    "build": "npx tsc",
+    "start": "bun dist/index.js"
   },
   "devDependencies": {
     "bun-types": "latest"
