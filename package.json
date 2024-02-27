@@ -1,0 +1,16 @@
+{
+  "name": "gpa-backend",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "fastify": "^4.26.1",
+    "nanoid": "^5.0.6",
+    "sib-api-v3-sdk": "^8.5.0"
+  }
+}
