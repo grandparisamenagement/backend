@@ -1,6 +1,10 @@
 import { NextRequest } from "next/server";
 import { sendWebhookEmail } from "../lib/sendEmail";
 
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.EMAIL_SENDER_API_KEY_2);
+
 // export async function GET(req: NextRequest) {
 //   try {
 //     return Response.json("test route");
@@ -12,14 +16,22 @@ import { sendWebhookEmail } from "../lib/sendEmail";
 //   // return Response.json({ coucou: "test" });
 // }
 
-export async function POST(req: NextRequest) {
+export async function POST() {
   try {
-    sendWebhookEmail();
+    const { data, error } = await resend.emails.send({
+      from: "Grand Paris Webhook <webhook@gpa-email.olivierlivet.net>",
+      to: ["oli.livet@gmail.com"],
+      subject: "Hello world",
+      html: "<p>Congrats on sending your <strong>first email</strong>!</p>",
+      //   react: EmailTemplate({ firstName: "John" }),
+    });
 
-    return Response.json("Webhook email sent");
-  } catch (e) {
-    console.error(e);
-    return Response.json(e);
+    if (error) {
+      return Response.json({ error }, { status: 500 });
+    }
+
+    return Response.json(data);
+  } catch (error) {
+    return Response.json({ error }, { status: 500 });
   }
-  // return Response.json({ coucou: "test" });
 }
