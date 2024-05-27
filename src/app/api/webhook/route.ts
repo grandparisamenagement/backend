@@ -14,9 +14,10 @@ import { sendWebhookEmail } from "../lib/sendEmail";
 
 export async function POST(req: NextRequest) {
   try {
-    return Response.json("test route");
-  } catch (e) {
     sendWebhookEmail();
+
+    return Response.json("Webhook email sent");
+  } catch (e) {
     console.error(e);
     return Response.json(e);
   }
