@@ -21,7 +21,7 @@ export async function POST() {
     const { data, error } = await resend.emails.send({
       from: "Grand Paris Webhook <webhook@gpa-email.olivierlivet.net>",
       to: ["oli.livet@gmail.com", "jordan.ricker@goingpublic.fr"],
-      subject: "Hello world",
+      subject: "GPA Webhook Triggered via Vercel Webhook Serverless Function",
       html: "<p>Contentful Update Webhook triggered.</p>",
       //   react: EmailTemplate({ firstName: "John" }),
     });
