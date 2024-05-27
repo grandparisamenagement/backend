@@ -20,9 +20,9 @@ export async function POST() {
   try {
     const { data, error } = await resend.emails.send({
       from: "Grand Paris Webhook <webhook@gpa-email.olivierlivet.net>",
-      to: ["oli.livet@gmail.com"],
+      to: ["oli.livet@gmail.com", "jordan.ricker@goingpublic.fr"],
       subject: "Hello world",
-      html: "<p>Congrats on sending your <strong>first email</strong>!</p>",
+      html: "<p>Contentful Update Webhook triggered.</p>",
       //   react: EmailTemplate({ firstName: "John" }),
     });
 
